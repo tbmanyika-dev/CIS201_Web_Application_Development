@@ -1,88 +1,47 @@
-# CIS201: Web Application Development (Jan–Jun 2026)
+# Rostering and Shift Management (FFIMS Module F4.1)
 
-## 📖 Course Description
+## Overview
+The *Rostering and Shift Management* submodule is a core component of the Fleet and Facilities Integrated Management System (FFIMS). It is designed to automate the transition of Africa University’s Fleet and Facilities Unit (FFU) from a manual, paper-based tracking system to a digital, mobile-first solution. 
 
-This course provides a deep dive into foundational web technologies and modern full-stack development. Using a **product-based learning** approach, the semester is dedicated to the iterative design, development, and deployment of a complete web-based software product.
+The primary purpose of this module is to manage the *weekly 5-in/5-out rotation system*, where two teams of five drivers alternate weeks of duty and rest. This system ensures adequate rest, reduces fatigue, and optimizes staff coverage for both regular bus routes and ad-hoc standby requests.
 
-Instead of traditional exams, emphasis is placed on industry-style workflows, version control, and continuous assessment through milestones.
+## Key Features
+*   *Automated 5-in/5-out Rotation:* Manages the alternating schedule for 10 drivers, ensuring half the team is active while the other half is resting.
+*   *Dynamic Shift Assignment:* Distinguishes between different duties, including *Bus Assigned* (regular staff pickup/drop-off) and *Standby Duty* (ad-hoc transport requests).
+*   *University Events Integration:* Supports *bulk shift creation* for peak university periods such as Graduation or Conference weeks.
+*   *Drag-and-Drop Scheduling:* An interactive interface for supervisors to reassign shifts with *real-time conflict detection* to prevent overlapping assignments or leave violations.
+*   *Early Start Handover:* Specifically manages early shifts starting at *4:30 AM* for night-duty staff pickups, with automated notifications sent 24 hours in advance.
+*   *Maintenance Zoning:* Maps workers to specific maintenance zones for targeted facility care.
 
----
+## Technical Architecture
+This submodule follows the standard FFIMS architecture:
+*   *Frontend:* Built with *React.js* using a *Mobile-First Design* approach to accommodate drivers on the go.
+*   *Backend:* Powered by *Node.js* and *Express.js* handling RESTful API requests.
+*   *Database:* Utilizes *PostgreSQL* with the *Sequelize ORM*.
+*   *UI Components:* Strictly uses shared UI elements from src/components/ui/ including *Card, Table, Badge, and Button* to maintain design consistency.
 
-## 🎯 Learning Outcomes (COs)
+## Database Schema (Relational)
+The rostering data is stored across several key tables:
+*   *Rosters/Schedules:* Tracks rotation weeks, shift types, and start times.
+*   *University_Events:* Stores data for bulk scheduling during major events.
+*   *Zoning_Assignments:* Records the specific maintenance areas assigned to workers.
+*   *Audit_Trail:* Logs every shift change, identifying who made the modification and when.
 
-By the end of this course, students will be able to:
+## UI/UX Standards
+*   *Color-Coded Status:* Uses badges to represent shift states (e.g., *Confirmed, Pending, Leave, or Overtime Threshold*).
+*   *Responsive Layout:* Optimized for smartphones with low-bandwidth friendly layouts and minimal animations for Zimbabwean network conditions.
+*   *Conflict Visualization:* Managers receive high-priority warnings or "conflict glows" when assigning shifts that violate labor laws or overlap with approved leave.
 
-* **CO1:** Master Internet fundamentals (HTTP/HTTPS, domains, hosting).
-* **CO2/3:** Design responsive UIs using HTML5/CSS3 and add interactivity with JavaScript.
-* **CO4:** Utilize professional version control via Git & GitHub.
-* **CO5/6:** Build and consume RESTful APIs using Node.js and Express.js.
-* **CO7/8:** Implement security, testing, and deployment for a portfolio-ready product.
+## Development Workflow (Git)
+Team members must follow the standard Git workflow:
+1.  *Clone* the repository to your local machine.
+2.  *Create a feature branch* (e.g., git checkout -b feature-roster-logic)—never work directly on the main branch.
+3.  *Pull latest changes* before starting work (git pull origin master).
+4.  *Stage and Commit* changes with detailed messages.
+5.  *Push* to the remote branch and create a *Pull Request* for team review before merging.
 
----
-
-## 🗓️ Course Roadmap & Milestones
-
-| Week | Topic | Project Activity |
-| --- | --- | --- |
-| **1** | Internet & Web Fundamentals | Tool setup & Project Orientation |
-| **2** | HTML5 & Forms | Initial UI Structure |
-| **3** | CSS3 & Responsive Design | Layout implementation |
-| **4-5** | JavaScript (Basics & Advanced) | Frontend logic & Interactivity |
-| **6** | Bootstrap | UI/UX Refinement |
-| **7** | Git & GitHub | Collaboration & Version Control |
-| **8** | APIs & JSON | Data Integration |
-| **9** | Node.js & Express | Backend Development |
-| **10-11** | Security & Testing | System Hardening & Debugging |
-| **12-14** | Deployment & Presentation | Final Polish & Demo |
-
----
-
-## 🛠️ Technology Requirements
-
-To follow along with this project, you need:
-
-* **Editor:** VS Code (or similar IDE)
-* **Runtime:** Node.js & npm
-* **Version Control:** Git
-* **Browser:** Modern browser (Chrome/Firefox) with DevTools
-
----
-
-## 📚 Resources
-
-### Essential Readings
-
-* 📘 *Eloquent JavaScript* – M. Haverbeke
-* 📗 *HTML & CSS* – J. Duckett
-* 📙 *Node.js Web Development* – D. Herron
-* 📕 *Pro Git* – S. Chacon
-
-### Online Learning
-
-* [MDN Web Docs](https://developer.mozilla.org/)
-* [The Odin Project](https://www.theodinproject.com/)
-* [freeCodeCamp](https://www.freecodecamp.org/)
-* [Net Ninja (YouTube)](https://www.youtube.com/c/TheNetNinja)
-
----
-
-## 🚀 Getting Started
-
-1. **Clone the repository**
-```bash
-git clone https://github.com/your-username/CIS201_Web_Application_Development.git
-
-```
-
-
-2. **Initialize the project**
-```bash
-npm install
-
-```
-
-
-
----
-
-*This repository is maintained as part of the CIS201 Coursework (Jan-Jun 2026).*
+## Installation & Setup
+1.  Ensure *Node.js (v18+)* and *npm* are installed.
+2.  Install dependencies: npm install.
+3.  Configure environment variables for the PostgreSQL database in the .env file.
+4.  Run the development server: npm run dev.
