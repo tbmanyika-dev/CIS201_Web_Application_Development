@@ -78,10 +78,11 @@ git clone https://github.com/your-username/CIS201_Web_Application_Development.gi
 2. **Initialize the project**
 ```bash
 npm install
+npm run dev
 
 ```
 
-Names
+
 
 ---
 
