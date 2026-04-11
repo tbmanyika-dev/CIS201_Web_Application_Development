@@ -1,7 +1,14 @@
+# Presented 10 April Classroom 1
+
 # FFIMS — Shift & Workforce Scheduling Module (v2 — Design Framework Applied)
 
 Next.js 14 web application for Africa University's Fleet and Facilities Unit.
 UI rebuilt to spec from **Group P5 UI Design Framework** (Red `#CC0000` · Black `#1A1A1A` · White · Inter).
+
+# <p align="center">TEAM</p>
+<p align="center">
+  <img src="TEAM.jpg" width="200"alt="Team Picture"/>
+</p>
 
 ## Quick Start
 
