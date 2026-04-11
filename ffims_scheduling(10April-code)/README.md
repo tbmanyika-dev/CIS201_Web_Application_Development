@@ -7,7 +7,7 @@ UI rebuilt to spec from **Group P5 UI Design Framework** (Red `#CC0000` · Black
 
 # <p align="center">TEAM</p>
 <p align="center">
-  <img src="TEAM.jpg" width="200"alt="Team Picture"/>
+  <img src="TEAM.jpg" width="100%"alt="Team Picture"/>
 </p>
 
 ## Quick Start
